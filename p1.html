@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* =========================
+   RESET
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #f4f2ed;
+  color: #151515;
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: #111;
+  color: #fff;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 24px 5vw;
+
+  background: rgba(244, 242, 237, 0.92);
+  backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid #d9d6cf;
+}
+
+.nav-logo {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.navbar nav {
+  display: flex;
+  gap: 28px;
+}
+
+.navbar nav a {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #555;
+  transition: 0.25s ease;
+}
+
+.navbar nav a:hover {
+  color: #000;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  min-height: 100vh;
+  padding: 70px 8vw 100px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  border-bottom: 1px solid #d9d6cf;
+}
+
+.hero-top {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 70px;
+
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #777;
+}
+
+.hero-title h1 {
+  font-family: "Space Grotesk", sans-serif;
+
+  font-size: clamp(80px, 16vw, 240px);
+  line-height: 0.8;
+
+  letter-spacing: -9px;
+  font-weight: 700;
+}
+
+.hero-title h1 span {
+  color: transparent;
+  -webkit-text-stroke: 2px #151515;
+}
+
+.hero-description {
+  max-width: 780px;
+
+  margin-top: 70px;
+
+  font-size: clamp(18px, 2vw, 25px);
+  line-height: 1.45;
+  color: #333;
+}
+
+.contact-mini {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+
+  margin-top: 35px;
+}
+
+.contact-mini a {
+  font-size: 13px;
+  border-bottom: 1px solid #777;
+  padding-bottom: 4px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+
+  gap: 15px;
+
+  margin-top: 100px;
+
+  border-top: 1px solid #bbb;
+  padding-top: 25px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stat strong {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 28px;
+}
+
+.stat span {
+  font-size: 11px;
+  line-height: 1.4;
+  color: #777;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+  display: grid;
+  grid-template-columns: 15% 85%;
+
+  padding: 120px 8vw;
+
+  border-bottom: 1px solid #d9d6cf;
+}
+
+.section-number {
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #777;
+}
+
+.section-content {
+  max-width: 1100px;
+}
+
+.section h2 {
+  font-family: "Space Grotesk", sans-serif;
+
+  font-size: clamp(42px, 6vw, 85px);
+
+  line-height: 0.95;
+  letter-spacing: -3px;
+
+  margin-bottom: 60px;
+}
+
+.section-content > p {
+  max-width: 850px;
+
+  font-size: 19px;
+  color: #444;
+
+  margin-bottom: 25px;
+}
+
+
+/* =========================
+   EXPERIENCE
+========================= */
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+
+  padding: 45px 0;
+
+  border-top: 1px solid #c9c6bf;
+}
+
+.timeline-date {
+  font-size: 12px;
+  color: #777;
+  text-transform: uppercase;
+}
+
+.timeline-item h3 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 25px;
+  margin-bottom: 8px;
+}
+
+.timeline-item h4 {
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+
+  margin-bottom: 25px;
+}
+
+.timeline-item ul {
+  padding-left: 20px;
+}
+
+.timeline-item li {
+  margin-bottom: 10px;
+  color: #444;
+}
+
+
+/* =========================
+   EDUCATION
+========================= */
+
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+
+  background: #c9c6bf;
+}
+
+.education-card {
+  background: #f4f2ed;
+
+  padding: 40px;
+  min-height: 220px;
+}
+
+.education-card span {
+  font-size: 11px;
+  color: #777;
+}
+
+.education-card h3 {
+  font-family: "Space Grotesk", sans-serif;
+
+  font-size: 26px;
+
+  margin: 30px 0 5px;
+}
+
+.education-card p {
+  color: #666;
+}
+
+.education-card strong {
+  display: block;
+  margin-top: 25px;
+}
+
+
+/* =========================
+   PUBLICATIONS
+========================= */
+
+.publication {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+
+  gap: 20px;
+
+  padding: 35px 0;
+
+  border-top: 1px solid #c9c6bf;
+}
+
+.publication > span,
+.publication-number {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 25px;
+}
+
+.publication h3 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.publication p {
+  color: #666;
+}
+
+.featured {
+  padding: 50px 0;
+}
+
+.sub-heading {
+  margin: 60px 0 20px;
+
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #777;
+}
+
+
+/* =========================
+   AWARDS
+========================= */
+
+.award-list {
+  border-top: 1px solid #c9c6bf;
+}
+
+.award {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+
+  padding: 25px 0;
+
+  border-bottom: 1px solid #c9c6bf;
+}
+
+.award span {
+  font-family: "Space Grotesk";
+}
+
+.award p {
+  font-size: 17px;
+}
+
+
+/* =========================
+   SKILLS
+========================= */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 2px;
+
+  background: #c9c6bf;
+}
+
+.skill-card {
+  padding: 45px;
+
+  background: #f4f2ed;
+
+  min-height: 260px;
+}
+
+.skill-card h3 {
+  font-family: "Space Grotesk", sans-serif;
+
+  font-size: 26px;
+
+  margin-bottom: 30px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tags span {
+  padding: 9px 13px;
+
+  border: 1px solid #bbb;
+
+  border-radius: 50px;
+
+  font-size: 12px;
+
+  transition: 0.25s ease;
+}
+
+.tags span:hover {
+  background: #151515;
+  color: #fff;
+  border-color: #151515;
+}
+
+
+/* =========================
+   TWO COLUMN
+========================= */
+
+.two-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 80px;
+}
+
+.two-column h3 {
+  font-family: "Space Grotesk", sans-serif;
+
+  font-size: 28px;
+
+  margin-bottom: 25px;
+}
+
+.two-column p {
+  margin-bottom: 10px;
+  color: #555;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-section {
+  padding: 150px 8vw 60px;
+
+  background: #151515;
+  color: #f4f2ed;
+}
+
+.contact-section .section-number {
+  color: #888;
+}
+
+.contact-section h2 {
+  font-family: "Space Grotesk", sans-serif;
+
+  font-size: clamp(50px, 8vw, 120px);
+
+  line-height: 0.9;
+  letter-spacing: -4px;
+
+  margin: 70px 0 45px;
+}
+
+.contact-section > p {
+  max-width: 650px;
+
+  color: #aaa;
+
+  font-size: 18px;
+}
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 30px;
+
+  margin-top: 50px;
+}
+
+.contact-links a {
+  border-bottom: 1px solid #555;
+
+  padding-bottom: 6px;
+
+  transition: 0.25s ease;
+}
+
+.contact-links a:hover {
+  border-color: #fff;
+}
+
+.contact-section footer {
+  margin-top: 120px;
+
+  padding-top: 25px;
+
+  border-top: 1px solid #333;
+
+  color: #777;
+
+  font-size: 12px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1000px) {
+
+  .navbar nav {
+    display: none;
+  }
+
+  .stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .section {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+}
+
+
+@media (max-width: 700px) {
+
+  .hero {
+    padding: 50px 6vw 70px;
+  }
+
+  .hero-top {
+    margin-bottom: 50px;
+  }
+
+  .hero-title h1 {
+    font-size: 19vw;
+    letter-spacing: -4px;
+  }
+
+  .hero-description {
+    margin-top: 50px;
+    font-size: 17px;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+
+    margin-top: 60px;
+  }
+
+  .section {
+    padding: 80px 6vw;
+  }
+
+  .section h2 {
+    font-size: 50px;
+  }
+
+  .timeline-item {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .education-grid,
+  .skills-grid,
+  .two-column {
+    grid-template-columns: 1fr;
+  }
+
+  .education-card,
+  .skill-card {
+    padding: 30px;
+  }
+
+  .publication {
+    grid-template-columns: 45px 1fr;
+  }
+
+  .contact-section {
+    padding: 100px 6vw 40px;
+  }
+
+  .contact-section h2 {
+    font-size: 55px;
+    letter-spacing: -2px;
+  }
+
+}
+  </style>
+
+  <title>Bhavya Patel — Computer Engineer</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <header class="navbar">
+    <div class="nav-logo">Bhavya Patel</div>
+
+    <nav>
+      <a href="#summary">Summary</a>
+      <a href="#experience">Experience</a>
+      <a href="#publications">Publications</a>
+      <a href="#awards">Awards</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" id="summary">
+
+      <div class="hero-top">
+        <span>Actively Publishing</span>
+        <span>Vadodara, Gujarat, India</span>
+      </div>
+
+      <div class="hero-title">
+        <h1>
+          BHAVYA<br>
+          <span>PATEL</span>
+        </h1>
+      </div>
+
+      <p class="hero-description">
+        Student of Computer Engineering at
+        Parul University — studying Computer Engineering , and Practicing New Codes and learning new languages.
+      </p>
+
+      <div class="contact-mini">
+        <a href="mailto:pbhavya536@gmail.com">
+          pbhavya536@gmail.com
+        </a>
+
+        <a href="tel:+919265153855">
+          +91 9265153855
+        </a>
+      </div>
+
+      <div class="stats">
+    </section>
+
+
+    <!-- PROFESSIONAL SUMMARY -->
+    <section class="section" id="summary">
+
+      <div class="section-number">§01</div>
+
+      <div class="section-content">
+
+        <h2>Professional Summary</h2>
+
+        <p>
+          Student of Computer Engineering at Parul University and learning Programming languages, database management, and computer networking.
+
+        </p>
+
+        <p>
+          Experienced in Programming languages like HTML , CSS , C++.
+        </p>
+
+      </div>
+    </section>
+
+
+    <!-- EXPERIENCE -->
+    <section class="section" id="experience">
+
+      <div class="section-number">§02</div>
+
+      <div class="section-content">
+
+        <h2>Experience</h2>
+
+        <article class="timeline-item">
+
+          <div class="timeline-date">
+            Current<br>
+            June 2025 — Present
+          </div>
+
+          <div>
+            <h3>Student — Computer Engineering, PIET-DS</h3>
+            <h4>
+              Parul Institute of Engineering & Technology,
+              Parul University, Vadodara
+            </h4>
+
+            <ul>
+              <li>
+                Learn cyber security, ethical hacking, network security,
+                programming languages, Computer Architecture.
+              </li>
+            </ul>
+          </div>
+
+        </article>
+            </p>
+          </div>
+
+        </article>
+
+
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- EDUCATION -->
+    <section class="section">
+
+      <div class="section-number">§03</div>
+
+      <div class="section-content">
+
+        <h2>Education</h2>
+
+        <div class="education-grid">
+
+          <div class="education-card">
+            <span>2025 — 2027</span>
+            <h3>Diploma — Computer Engineering</h3>
+            <p>Cyber Security and Coding</p>
+            <strong>CGPA 8.62 / 10.0</strong>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- PUBLICATIONS -->
+    <section class="section" id="publications">
+
+      <div class="section-number">§04</div>
+
+      <div class="section-content">
+
+        <h2>Publications</h2>
+
+        <div class="publication featured">
+
+          <span class="publication-number">01</span>
+
+          <div>
+            <h3>
+              Learn the Foundations of Programming Language
+            </h3>
+
+            <p>
+              Covers reconnaissance, network scanning, vulnerability
+              analysis, system hacking, malware threats, social
+              engineering, DoS attacks, IoT security and penetration testing.
+            </p>
+          </div>
+
+        </div>6
+
+
+    <!-- AWARDS -->
+    <section class="section" id="awards">
+
+      <div class="section-number">§05</div>
+
+      <div class="section-content">
+
+        <h2>Awards & Recognitions</h2>
+
+        <div class="award-list">
+
+          <div class="award">
+            <span>01</span>
+            <p>
+              Certificate of Python — CISCO 2026
+            </p>
+          </div>
+
+          <div class="award">
+            <span>02</span>
+            <p>
+              Certificate of Operating System — CISCO 2025
+            </p>
+          </div>
+          </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+
+      <div class="section-number">§06</div>
+
+      <div class="section-content">
+
+        <h2>Technical Skills</h2>
+
+        <div class="skills-grid">
+
+          <div class="skill-card">
+            <h3>Cyber Security</h3>
+
+            <div class="tags">
+              <span>Ethical Hacking</span>
+              <span>Vulnerability Assessment</span>
+              <span>Penetration Testing</span>
+              <span>Network Security</span>
+              <span>Intrusion Detection</span>
+              <span>Biometric Security</span>
+            </div>
+          </div>
+
+
+          <div class="skill-card">
+          </div>
+
+
+          <div class="skill-card">
+            <h3>Security Tools & OS</h3>
+
+            <div class="tags">
+              <span>Kali Linux</span>
+              <span>Wireshark</span>
+              <span>Metasploit</span>
+              <span>Nmap</span>
+              <span>Windows</span>
+              <span>Ubuntu</span>
+            </div>
+          </div>
+
+
+          <div class="skill-card">
+            <h3>Programming & Web</h3>
+
+            <div class="tags">
+              <span>Java</span>
+              <span>Python</span>
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+              <span>SQL</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- LANGUAGES -->
+    <section class="section">
+
+      <div class="section-number">§07</div>
+
+      <div class="section-content">
+
+        <h2>Languages & Research Interests</h2>
+
+        <div class="two-column">
+
+          <div>
+            <h3>Languages</h3>
+
+            <p><strong>Gujarati</strong> — Native</p>
+            <p><strong>English</strong> — Professional</p>
+            <p><strong>Hindi</strong> — Proficient</p>
+          </div>
+
+          <div>
+            <h3>Research Interests</h3>
+
+            <div class="tags">
+              <span>Ethical Hacking</span>
+              <span>Programming Language</span>
+              <span>AI/ML Security</span>
+              <span>Biometric Authentication</span>
+              <span>IoT Security</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- CONTACT -->
+    <section class="contact-section" id="contact">
+
+      <div class="section-number">§08 · GET IN TOUCH</div>
+
+      <h2>
+        Let's talk teaching,<br>
+        research, or collaboration.
+      </h2>
+
+      <p>
+        Open to full-time Assistant Professor roles and collaborations
+        spanning cyber security, Programming Languages and AI-driven security
+        research.
+      </p>
+
+      <div class="contact-links">
+
+        <a href="mailto:pbhavya536@gmail.com">
+          ✉ pbhavya536@gmail.com
+        </a>
+
+        <a href="tel:+919265153855">
+          ☎ +91 9265153855
+        </a>
+
+      </div>
+
+      <footer>
+        Vadodara, Gujarat — 390008, India
+      </footer>
+
+    </section>
+
+  </main>
+
+</body>
+</html>
